@@ -135,10 +135,11 @@ class NetEasyTopMusic(object):
                 if user_info:
                     background_url = user_info['profile'].get('backgroundUrl', 'http://p2.music.126.net/hV9qcHj-xDPdtsd32jaUHg==/3427177773521921.jpg')
                     user_header_img_url = user_info['profile'].get('avatarUrl', 'http://p2.music.126.net/hV9qcHj-xDPdtsd32jaUHg==/3427177773521921.jpg')
-                    user_name_info = user_info['profile'].get('nickname', u'猪儿虫')
-                    user_sig_info = user_info['profile'].get('signature', u'我是一个猪儿虫')
-                    qq_name_info = json.loads(user_info['bindings'][1]['tokenJsonStr']).get('nickname', u'猪儿虫')
-                    we_chat_info = json.loads(user_info['bindings'][2]['tokenJsonStr']).get('nickname', u'猪儿虫')
+                    user_name_info = user_info['profile'].get('nickname', '猪儿虫')
+                    user_sig_info = user_info['profile'].get('signature', '我是一个猪儿虫')
+                    total = len(user_info['bindings'])>1
+                    qq_name_info = json.loads(user_info['bindings'][1]['tokenJsonStr']).get('nickname', '猪儿虫') if len(user_info['bindings'])>1 else '猪儿虫'
+                    we_chat_info = json.loads(user_info['bindings'][2]['tokenJsonStr']).get('nickname', '猪儿虫') if len(user_info['bindings'])>2 else '猪儿虫'
                     current_user_info = login_info(background=background_url, user_header_img=user_header_img_url,
                                                    user_name=user_name_info, user_signature=user_sig_info, qq_name=qq_name_info,
                                                    we_chat_name=we_chat_info, csrf_token=self.token)
@@ -214,9 +215,7 @@ class NetEasyTopMusic(object):
 if __name__ == '__main__':
     avg_list = sys.argv
     user_phone, user_pass = (avg_list[1], avg_list[2])
-    # user_phone, user_pass = ('18567442380', 'you87069')
     file_path = os.getcwd()
-    # mu = NetEasyTopMusic('18567442380', 'you87069')
     if str(user_phone).isdigit():
         if all((user_phone, user_pass)):
             print('正在尝试模拟登陆....')
