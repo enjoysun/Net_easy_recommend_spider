@@ -215,7 +215,6 @@ if __name__ == '__main__':
     avg_list = sys.argv
     user_phone, user_pass = (avg_list[1], avg_list[2])
     file_path = os.getcwd()
-    # mu = NetEasyTopMusic('18567442380', 'you87069')
     if str(user_phone).isdigit():
         if all((user_phone, user_pass)):
             print('正在尝试模拟登陆....')
