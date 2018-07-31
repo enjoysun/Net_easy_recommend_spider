@@ -6,7 +6,7 @@
 # @Email   : myoueva@gmail.com
 # @File    : spider_topten_netesay.py
 # @Software: PyCharm
-# @license : 娱网科道信息技术有限公司 copyright © 2015-2016
+# @license : copyright © 2015-2016
 from __future__ import (
     print_function, unicode_literals, division, absolute_import
 )
