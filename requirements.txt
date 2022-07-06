@@ -5,7 +5,7 @@ fonttools==3.26.0
 future==0.16.0
 html5lib==1.0.1
 idna==2.6
-lxml==4.2.1
+lxml==4.9.1
 pycryptodomex==3.6.1
 requests==2.18.4
 selenium==3.12.0
